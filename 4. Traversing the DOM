@@ -1,0 +1,75 @@
+// Traversing the DOM
+
+let val;
+
+const list = document.querySelector("ul.collection");
+
+const listItem = document.querySelector("li.collection-item:first-child");
+
+val = listItem;
+val = list;
+
+// Properties attached to these items/nodes
+// (Parent and Child)
+
+/*
+
+NODE TYPES
+
+1 - Element
+2 - Attribute (Deprecated)
+3 - Text Node
+8 - Comment
+9 - Document Itself
+10 - Doctype
+
+*/
+
+// UL (Get Child Nodes) (Includes Space)
+val = list.childNodes;  // Node List
+val = list.childNodes[0];  // Text Node
+val = list.childNodes[0].nodeName; // Returns Node Name
+val = list.childNodes[1].nodeType; // Returns Node Type
+
+// UL (Get Children Nodes) (Without Space)
+val = list.children;    // HTML Collection
+val = list.children[0]; // Specific
+
+// Changing the element text
+val = list.children[0].textContent = "Hello";
+
+// Children of Children
+val = list.children[3].children;
+val = list.children[3].children[0];
+
+// Adding id in children of children
+val = list.children[3].children[0].id = "test-link";
+
+// First Child
+val = list.firstChild; // First Node
+val = list.firstElementChild; // First Element
+
+// Last Child
+val = list.lastChild; // Last Node
+val = list.lastElementChild; // Last Element
+
+// Count
+val = list.childElementCount; // Returns 5 (Children of UL)
+
+
+// LI (Get Parent Nodes) (Includes Space)
+val = listItem.parentNode;
+val = listItem.parentElement;
+
+// Parent of Parent
+val = listItem.parentElement.parentElement;
+
+// Get next sibling
+val = listItem.nextSibling; // Text Node
+val = listItem.nextElementSibling; // Element Node
+
+// Get previous sibling
+val = listItem.previousSibling; // Text Node
+val = listItem.previousElementSibling; // Returns Null
+
+console.log(val);
