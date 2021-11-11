@@ -1,0 +1,50 @@
+// DOM Selectors (Single Element)
+
+// 1. Get Element by Id
+console.log(document.getElementById("task-title"));
+
+// Get things from the element
+console.log(document.getElementById("task-title").id);
+console.log(document.getElementById("task-title").className);
+
+// Universal
+const taskTitle = document.getElementById("task-title");
+
+// Change styling by getElementById
+taskTitle.style.background = "#333";
+taskTitle.style.color = "#fff";
+taskTitle.style.padding = "5px";
+// taskTitle.style.display = "none";
+
+//Change the content
+taskTitle.textContent = "Task List";
+taskTitle.innerText = "My Task";
+taskTitle.innerHTML = '<span style = "color: red"> Task List </span>';
+
+
+// 2. Query Selector
+console.log(document.querySelector("#task-title"));
+console.log(document.querySelector(".card-title"));
+console.log(document.querySelector("h5"));
+
+// Targeting certain elements even if there is more than one
+
+document.querySelector("li").style.color = "red"; // Changes the color of first li
+
+// Nested Elements
+document.querySelector("ul li").style.color = "blue"; // Changes the color of first li
+
+// Changing last element using pseudo classes
+document.querySelector("li:last-child").style.color = "red"; // Changes the color of last li
+
+// Changing certain element color using pseudo classes
+document.querySelector("li:nth-child(3)").style.color = "yellow"; // Changes the color of third li
+
+// Changing Text Content
+document.querySelector("li:nth-child(4)").textContent = "Hello World";
+
+// Odd
+document.querySelector("li:nth-child(odd)").style.color = "#ccc"; // Changes the color of first odd element
+
+// Even
+document.querySelector("li:nth-child(even)").style.color = "green"; // Changes the color of first even element
