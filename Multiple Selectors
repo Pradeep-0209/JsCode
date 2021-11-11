@@ -1,0 +1,95 @@
+/* 
+
+Multiple Selectors
+
+1. getElementsByClassName (HTML Collection)
+2. querySelectorAll (Node List)
+
+They return either a HTML collection or a Node List
+
+*/
+
+// getElementsByClassName (Global Scope)
+const items = document.getElementsByClassName("collection-item");
+console.log(items)
+
+/* 
+
+If we want access a specific one then we can treat it like an array
+
+*/
+
+// Targeting a specific one
+console.log(items[0]);
+
+// Doing certain things in it
+items[0].style.color = 'red';
+items[3].textContent = 'Hello';
+
+// Nested (Block Scope)
+const listItems = document.querySelector("ul").getElementsByClassName("collection-item");
+console.log(listItems);
+
+// Get elements by tag name
+let lis = document.getElementsByTagName("li");
+console.log(lis);
+
+// Targeting a specific one
+console.log(lis[0]);
+
+// Doing certain things in it
+lis[0].style.color = 'red';
+lis[3].textContent = 'Hello';
+
+// HTML Collection is not an array
+
+// Coverting it into an array
+lis = Array.from(lis);
+
+lis.reverse();
+
+lis.forEach(function(li, index) {
+  // console.log(li)
+  console.log(li.className);
+  li.textContent = `${index}: Hello`;
+});
+
+console.log(lis);
+
+// querySelectorAll (Node List)
+
+/*
+
+Node List counts not only Elements but also Text Nodes. It also allows us to do some othr array methods without having to convert it.
+
+*/
+
+const items = document.querySelectorAll("ul.collection li.collection-item");
+
+console.log(items);
+
+// For Each
+items.forEach(function(item, index) {
+  item.textContent = `${index}: Hello`;
+});
+
+// // Odd & Even
+const liOdd = document.querySelectorAll("li:nth-child(odd)");
+
+const liEven = document.querySelectorAll("li:nth-child(even)");
+
+// For Each (odd)
+liOdd.forEach(function(li, index) {
+  li.style.background = "#ccc"
+});
+
+// For Loop (even)
+for(let i = 0; i < liEven.length; i++) {
+  liEven[i].style.background = "#f4f4f4"
+}
+
+/* 
+
+For Loop will work with the HTML Collection even if we don't covert it into an array. Because we can still use length on each item or collection.
+
+*/
