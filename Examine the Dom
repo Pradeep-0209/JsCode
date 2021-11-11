@@ -1,0 +1,70 @@
+// Variable initializtion
+let val;
+
+// Document
+val = document;
+
+// HTML Collection from entire document
+val = document.all;
+
+// Getting an index in HTML Collection
+val = document.all[1];
+
+// Properties
+val = document.all.length;
+
+// Targeting a particular element
+val = document.head;
+val = document.body;
+val = document.doctype;
+val = document.domain;
+val = document.URL;
+val = document.characterSet;
+val = document.contentType;
+
+// Selecting without selectors
+
+// Selecting forms
+val = document.forms;
+
+// Index of a selected form
+val = document.forms[0];
+
+// Getting things from the form
+val = document.forms[0].id;
+val = document.forms[0].method;
+val = document.forms[0].action;
+
+// for links
+val = document.links;
+
+// Accessing certain links
+val = document.links[0];
+val = document.links[0].id;
+val = document.links[0].className;
+
+// Collection of classes (Dom TokenList Structure)
+val = document.links[0].classList;
+val = document.links[0].classList[0];
+
+// Getting the images
+val = document.images;
+
+// Getting the scripts
+val = document.scripts;
+val = document.scripts[2];
+
+// Get attribute (Attribute)
+val = document.scripts[2].getAttribute("src")
+
+// Turning HTML Collection into an array
+const scripts =  document.scripts;
+
+const scriptsArr = Array.from(scripts);
+
+scriptsArr.forEach(function(script) {
+  // console.log(script);
+  console.log(script.getAttribute("src"));
+})
+
+console.log(val);
