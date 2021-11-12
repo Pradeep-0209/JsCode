@@ -1,0 +1,32 @@
+// Creating an Element
+const li = document.createElement("li");
+
+// Adding a class
+li.className = "collection-item";
+
+// Adding an Id
+li.id = "new-item";
+
+// Adding an attribute
+li.setAttribute("title", "New Item");
+
+// Adding a text node and appending
+// appendChild() - Helps to put something inside of something
+li.appendChild(document.createTextNode("Hello world"));
+
+// Appending li as child to UL
+document.querySelector("ul.collection").appendChild(li);
+
+//Adding link to the element
+const link = document.createElement('a');
+
+// Adding classes to the link
+link.className = "delete-item secondary-content";
+
+// Adding icon to the Dom
+link.innerHTML = '<i class="fa fa-remove"></i>';
+
+// Appending link to the li
+li.appendChild(link);
+
+console.log(li);
