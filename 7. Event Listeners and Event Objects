@@ -1,0 +1,47 @@
+// Event Listeners and Event Objects
+
+// Event Listeners
+
+document.querySelector('.clear-tasks').addEventListener("click", function(e) {
+  console.log("Hello World");
+
+  e.preventDefault();
+})
+
+// Other Method
+document.querySelector('.clear-tasks').addEventListener("click", onClick);
+
+function onClick(e) {
+  // console.log("clicked")
+
+  let val;
+
+  val = e;
+
+  // Target Element
+  val = e.target;
+  val = e.target.id;
+  val = e.target.className;
+  val = e.target.classList;
+
+  // Chnaging the text using target
+  e.target.innerText = "hello";
+
+  // Event Type
+  val = e.type;
+
+  // Time Stamp
+  val = e.timeStamp;
+
+  // Coordinates event relative to the window
+  val = e.clientY;
+  val = e.clientX;
+
+  // Coordinate event relative to the element
+  val = e.offsetY;
+  val = e.offsetX;
+
+  e.preventDefault();
+
+  console.log(val);
+}
