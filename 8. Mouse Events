@@ -1,0 +1,53 @@
+// Mouse Events
+
+// Slecting the button
+const clearBtn = document.querySelector(".clear-tasks");
+
+// Seleting the card
+const card = document.querySelector(".card");
+
+// Selecting the heading
+const heading = document.querySelector("h5");
+
+
+// Mouse Events
+
+// CLick
+clearBtn.addEventListener("click", runEvent);
+
+// Double click
+clearBtn.addEventListener("dblclick", runEvent);
+
+// Mouse Down
+clearBtn.addEventListener("mousedown", runEvent);
+
+// Mouse Up
+clearBtn.addEventListener("mouseup", runEvent);
+
+// Mouse Enter
+clearBtn.addEventListener("mouseenter", runEvent);
+
+// Mouse Leave
+clearBtn.addEventListener("mouseleave", runEvent);
+
+// Mouse Over (For entering any element)
+clearBtn.addEventListener("mouseover", runEvent);
+
+// Mouse Out (For existing any element)
+clearBtn.addEventListener("mouseout", runEvent);
+
+// Mouse Move
+card.addEventListener("mousemove", runEvent);
+
+// Event Handler
+function runEvent(e) {
+  console.log(`Event Type: ${e.type}`);
+
+  e.preventDefault();
+
+  // Changing the haeading
+  heading.textContent = `MouseX: ${e.offsetX} MouseY: ${e.offsetY}`;
+
+  // Giving the styling
+  document.body.style.backgroundColor = `rgb(${e.offsetX}, ${e.offsetY}, 50)`;
+}
