@@ -1,0 +1,57 @@
+// Keyboard and Input Events
+
+// Selecting the form
+const form = document.querySelector('form');
+
+// Selecting the input
+const taskInput = document.getElementById('task');
+
+// Slecting the heading
+const heading = document.querySelector("h5");
+
+// Clearing the form Input
+taskInput.value = "";
+
+// Event Listener
+form.addEventListener('submit', runEvent);
+
+// Event on the actual Input
+
+// Keydown
+taskInput.addEventListener("keydown", runEvent);
+
+// Keyup
+taskInput.addEventListener("keyup", runEvent);
+
+// Keypress
+taskInput.addEventListener("keypress", runEvent);
+
+// Focus
+taskInput.addEventListener("focus", runEvent);
+
+// Blur
+taskInput.addEventListener("blur", runEvent);
+
+// Cut
+taskInput.addEventListener("cut", runEvent);
+
+// Paste
+taskInput.addEventListener("paste", runEvent);
+
+// Input (Any type of input)
+taskInput.addEventListener("input", runEvent);
+
+function runEvent(e) {
+    console.log(`Event Type: ${e.type}`);
+
+    // Targeting the value which are typed
+    console.log(e.target.value);
+
+    // Getting Input Value
+    console.log(taskInput.value);
+
+    // Putting the input value into the heading
+    heading.innerText = e.target.value;
+
+    e.preventDefault();
+}
