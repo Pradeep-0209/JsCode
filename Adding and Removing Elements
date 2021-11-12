@@ -1,0 +1,92 @@
+// Removing and Replacing Element
+
+// Replacing Element
+
+// Creating an Element
+const newHeading = document.createElement("h2");
+
+// Adding an Id
+newHeading.id = "task-title";
+
+// Adding and appending a textNode
+newHeading.appendChild(document.createTextNode("Task List"));
+
+// Getting the lod Heading
+const oldHeading = document.getElementById("task-title");
+
+/*
+
+We are going to need a parent because we are going to use replace child to replace the H5
+
+*/
+
+// Targeting the parent
+const cardAction = document.querySelector(".card-action");
+
+// Replace
+cardAction.replaceChild(newHeading, oldHeading);
+
+
+// Removing Element
+
+// Targeting the LI
+const lis = document.querySelectorAll('li');
+
+// Targeting the UL
+const listItem = document.querySelector("ul")
+
+// Removing a specific item in li
+lis[0].remove();
+
+// Removing Child Element
+listItem.removeChild(lis[3]);
+
+
+// Classes and Attributes
+
+// Targeting the first Li
+const firstLi = document.querySelector("li:first-child");
+
+// Targeting the Li Child (Link)
+const link = firstLi.children[0];
+
+// Classes
+// Instantiate a variable
+let val;
+
+// Classes of the link
+val = link.className;
+
+// Collection of classes in the link
+val = link.classList;
+
+// Targeting a specific class
+val = link.classList[0];
+
+// Adding a class in the link
+link.classList.add('test');
+val = link;
+
+// Removing a class in the link
+link.classList.remove('test');
+val = link;
+
+// Attributes
+// Getting a specific attribute
+val = link.getAttribute('href');
+
+// Setting the attribute
+val = link.setAttribute('href', 'http://google.com');
+
+// Check if there is an actual attribute
+val = link.hasAttribute('href');
+
+// Adding an attribute
+val = link.setAttribute('title', "google");
+val = link;
+
+// Removing an attribute
+val = link.removeAttribute('title');
+val = link;
+
+console.log(val);
