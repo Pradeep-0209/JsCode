@@ -1,0 +1,17 @@
+// Event Bubbling and Event Delegation
+
+/*
+
+1. Event Bubbling
+
+- Event Bubbling is where we put the listener on the children elements and then we use logic inside of the event handler to target the element that we actually want that click, for whatever type of event it is.
+
+- Event Bubbling bubbles up towards parent.
+
+2. Event Delegation
+
+- Event Delegation is where we put the listener on the parent elements and then we use logic inside of the event handler to target the element that we actually want that click, for whatever type of event it is.
+
+- Event Delegation delegates towards child.
+
+*/
