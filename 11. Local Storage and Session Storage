@@ -1,0 +1,81 @@
+// Local Storage and Session Storage
+
+/*
+
+*IMPORTANT POINT*
+
+We can set key & value pairs in local storage. Value has to be a STRING.
+
+We can still save arrarys and objects but we have to turn them into a string first with a method called JSON.stringify and when we pull out to use it we have to parse it back using a method called JSON.parse
+
+*/
+
+/*
+
+*Difference between Local and Session Storage*
+
+- Local storage will stay until we manually clear it out in our settings or through our program and Session storage will leave once our browser is closed.
+
+*/
+
+// Setting local storage item.
+localStorage.setItem("name", "Pradeep");
+localStorage.setItem("age", "21");
+
+// Setting session storage item.
+sessionStorage.setItem("name", "Bhandari");
+
+// Removing from the local storage
+localStorage.removeItem("name");
+
+// Getting from the local storage into a variable
+const name = localStorage.getItem("name");
+const age = localStorage.getItem("age");
+
+// Clear Local Storage
+localStorage.clear();
+console.log(name, age);
+
+// Adding Event Handler in the form
+document.querySelector("form").addEventListener("submit", function(e) {
+
+    // Selecting the input value
+    const task = document.getElementById("task").value;
+
+    // Fix
+    let tasks;
+
+    // Pull out of local storage if there is something or just set tasks to an empty array and add to it.
+
+    // Tasks = (array of task)
+
+    if(localStorage.getItem("tasks") === null) {
+        tasks = [];
+    } else {
+        tasks = JSON.parse(localStorage.getItem("tasks"));
+    }
+
+    // Push the tasks value into the tasks variable
+    tasks.push(task);
+
+    // Setting the value in the local storage
+    localStorage.setItem("tasks", JSON.stringify(tasks));
+
+    // Alert
+    alert('Task Saved');
+
+    /* 
+    
+    By the above method the new value will be replaced and we will be able to store only one value to fix this we can create an array of tasks and store that as a string.
+
+    */
+    e.preventDefault();
+});
+
+// Pulling out from Local Storage
+
+const tasks = JSON.parse(localStorage.getItem("tasks"));
+
+tasks.forEach(function(task) {
+    console.log(task);
+});
