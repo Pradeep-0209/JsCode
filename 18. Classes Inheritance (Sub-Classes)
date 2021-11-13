@@ -1,0 +1,37 @@
+// Inheritance in Class (SUB-CLASSES)
+
+class Person {
+  constructor(firstName, lastName) {
+    this.firstName = firstName;
+    this.lastName = lastName;
+  }
+
+  // Adding greeting Method
+  greeting() {
+    return `Hello there ${this.firstName} ${this.lastName}`;
+  }
+}
+
+// Extending person class with customer class (Inheritance)
+class Customer extends Person {
+  constructor(firstName, lastName, phone, memebership) {
+    // Super calls the parent class constructor
+    super(firstName, lastName);
+
+    this.phone = phone;
+    this.memebership = memebership;
+  }
+
+  // Static method
+  static getMembershipCost() {
+    return 500;
+  }
+}
+
+// Instantiating a new customer
+const john = new Customer("John", "Doe", "555-555-5555", "Standard");
+
+console.log(john.greeting());
+
+// Static console
+console.log(Customer.getMembershipCost());
