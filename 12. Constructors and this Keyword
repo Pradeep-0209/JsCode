@@ -1,0 +1,47 @@
+// Constructor and this keyword
+
+/*
+
+Constructor are used to create multiple instances of a certain type of object.
+
+Constructor is also useful for prototype and inheritance.
+
+Constructor variable should start with Capital letters
+
+*/
+
+/*
+
+*THIS KEYWORD*
+
+this keyword is really important. What it does is it refers to the current instance of the object.
+
+Globally = Returns the windows object
+Within Scope = Returns the current instance 
+
+*/
+
+// Creating a person Constructor
+function Person(name, dob) {
+  this.name = name;
+  // this.age = age;
+  this.birthday = new Date(dob);
+  this.calculateAge = function() {
+    const diff = Date.now() - this.birthday.getTime();
+    const ageDate = new Date(diff);
+    return Math.abs(ageDate.getUTCFullYear() - 1970);
+  }
+}
+
+// After creating a constructor function we can instantiate the variable.
+
+// Instantiating the person varibale.
+// To instantiate we create a new keyword.
+const pradeep = new Person("Pradeep", 21);
+const john = new Person("John", 36);
+
+console.log(john);
+
+const pradeep = new Person("Pradeep", "3-2-2000");
+
+console.log(pradeep.calculateAge());
