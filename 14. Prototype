@@ -1,0 +1,71 @@
+// Prototypes
+
+/*
+
+Each object in JS has a prototype and a prototype is an object itself.
+
+All Objects inherit their properties and methods from their prototype.
+
+*/
+
+// Person Constructor
+function Person(firstName, lastName, dob) {
+  this.firstName = firstName;
+  this.lastName = lastName;
+  this.birthday = new Date(dob);
+  this.calculateAge = function() {
+    const diff = Date.now() - this.birthday.getTime();
+    const ageDate = new Date(diff);
+    return Math.abs(ageDate.getUTCFullYear() - 1970);
+  }
+}
+
+/*
+
+*IMPORTANT NOTE ABOUT PERSON CONSTRUCTOR*
+
+- It's clear that each person has their own first name and last name and birthday. Those should be the actual properties of this (Person) object.
+
+firstName/lastName/birthday is different for every person.
+
+- Calculate Age however is going to be the same for every person. It's going to look at their birthday and it's going to return their age.
+
+So this is something that we should put inside of the prototyple not directly into the object.
+
+*/
+
+// Putting Calculate Age into the prototype.
+Person.prototype.calculateAge = function() {
+  const diff = Date.now() - this.birthday.getTime();
+  const ageDate = new Date(diff);
+  return Math.abs(ageDate.getUTCFullYear() - 1970);
+}
+
+// Another prototype method (Get Full Name)
+Person.prototype.getFullName = function() {
+  return `${this.firstName} ${this.lastName}`;
+}
+
+// Manipulating the data in Prototype
+
+// Gets Married
+Person.prototype.getsMarried = function(newLastName) {
+  this.lastName = newLastName;
+}
+
+// Instantiating the Person Variable
+const john = new Person("John", "Doe", "8-12-90");
+const mary = new Person("Mary", "William", "March 20 1978");
+
+console.log(mary);
+
+console.log(john.calculateAge());
+
+console.log(mary.getFullName());
+
+mary.getsMarried("Smith");
+console.log(mary.getFullName());
+
+// Has Own Property
+console.log(mary.hasOwnProperty("firstName"));
+console.log(mary.hasOwnProperty("getsMarried"));
