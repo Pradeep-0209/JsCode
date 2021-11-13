@@ -1,0 +1,31 @@
+// Creating Object with Object.create()
+
+const personPrototypes = {
+  greeting: function() {
+    return `Hello there ${this.firstName} ${this.lastName}`;
+  },
+  getMarried: function(newLastName) {
+    this.lastName = newLastName;
+  }
+}
+
+// Creating a Object
+// It takes prototype as parameter
+const mary = Object.create(personPrototypes);
+mary.firstName = "mary";
+mary.lastName = "williams";
+mary.age = 30;
+
+mary.getMarried("thompson");
+
+console.log(mary.greeting());
+
+// Another Person
+const pradeep = Object.create(personPrototypes, {
+  firstName: {value: "Pradeep"},
+  lastName: {value: "Bhandari"},
+  age: {value: 21}
+});
+
+console.log(pradeep);
+console.log(pradeep.greeting());
