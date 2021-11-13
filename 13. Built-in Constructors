@@ -1,0 +1,55 @@
+// Built-in Constructors (Not advisable)
+
+/*
+
+One thing we can do when we convert primitive data into object is we can add properties to it.
+
+*/
+
+// String
+const name1 = "Jeff";
+
+// As an Object
+const name2 = new String("Jeff");
+
+// Properties
+name2.hoo = "bar";
+
+console.log(name2);
+
+// Trouble 
+console.log(typeof name1);
+console.log(typeof name2);
+
+if (name1 === "Jeff") {
+  console.log("Yess")
+} else {
+  console.log("Noo")
+}
+
+if (name2 === "Jeff") {
+  console.log("Yess")
+} else {
+  console.log("Noo")
+}
+
+/* 
+
+Same applies to Numbers, Boolean, Objects, Arrays
+
+*/
+
+// Function
+const getSum1 = function(x, y) {
+  return x + y;
+}
+
+const getSum2 = new Function("x", "y", "return 1+1");
+
+console.log(getSum2(1, 1));
+
+// Regular Expression
+const re1 = /\w+/;
+const re2 = new RegExp("\\w+");
+
+console.log(re2);
