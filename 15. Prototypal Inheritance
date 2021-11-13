@@ -1,0 +1,57 @@
+// Prototypal Inheritance
+
+/*
+
+Prototypal Inheritanve is used to have one object or one object type inherit from another.
+
+*/
+
+// Person Constructor
+function Person(firstName, lastName) {
+  this.firstName = firstName;
+  this.lastName = lastName;
+}
+
+// Greeting Prototype in the Person Constructor
+Person.prototype.greeting = function() {
+  return `Hello there ${this.firstName} ${this.lastName}`;
+}
+
+// Instantiating the Person Constructor
+const person1 = new Person("John", "Doe");
+
+console.log(person1.greeting());
+
+// Customer Constructor
+function Customer(firstName, lastName, phone, membership) {
+  /* 
+  
+  Call is a function that allows us to call another function from somewhere else in the current context.
+
+  first parameter - this
+  second parameter - properties we want to inherit from the constructor.
+
+  */
+  Person.call(this, firstName, lastName);
+
+  this.phone = phone;
+  this.membership = membership;
+}
+
+// Inheriting the Person prototype into the Customer Constructor
+Customer.prototype = Object.create(Person.prototype);
+
+// Console returns Person prototype, converting it to Customer prototype
+Customer.prototype.constructor = Customer;
+
+// Creating a Customer
+const customer1 = new Customer("Tom", "Smith", "555-555-5555", "Standard");
+
+console.log(customer1);
+
+// Creating Separate greeting for customer.
+Customer.prototype.greeting = function() {
+  return `Hello there ${this.firstName} ${this.lastName}. Welcome to our Company!!`;
+}
+
+console.log(customer1.greeting());
