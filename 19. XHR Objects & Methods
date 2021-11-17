@@ -1,0 +1,73 @@
+// XHR Object and Mehtods
+
+// Targeting the button
+document.getElementById("button").addEventListener("click", loadData);
+
+// Creating loadData Function
+function loadData() {
+  // Create an XHR Object
+  const xhr = new XMLHttpRequest();
+
+  // The above object just like any other object has properties and methods associated with it.
+
+  // One of those is OPEN
+
+  // Open is basically where we're going to specify the type of request we want to make. And the URL or the File name that we want to make it to.
+
+  xhr.open("Get", "data.txt", true);
+
+  // Checking readyState
+  // console.log("readystate: ", xhr.readyState)
+
+  // Optional - Used for spinners/loaders
+  // onProgress
+  xhr.onprogress = function() {
+    console.log("readystate: ", xhr.readyState)
+  }
+
+  // Onload
+  xhr.onload = function() {
+    // Checking readyState
+    console.log("readystate: ", xhr.readyState)
+    // First check the status
+    if(this.status === 200) {
+      // console.log(this.responseText);
+      document.getElementById('output').innerHTML = `<h1>${this.responseText}</h1>`
+    }
+  }
+
+  // readyState example
+  // xhr.onreadystatechange = function() {
+  //  // Checking readyState
+  // console.log("readystate: ", xhr.readyState)
+  //   if(this.status === 200 && this.readyState === 4); {
+  //     console.log(this.responseText);
+  //   }
+  // }
+
+  // Error
+  xhr.onerror = function() {
+    console.log("Request Error....");
+  }
+
+  // Send
+  xhr.send();
+
+  /*
+
+  *readyState Values*
+
+  0: request not initialized
+  1: server connection established
+  2: request received
+  3: processing request
+  4: request finished and response is ready
+
+  *Http Status*
+
+  200: Ok
+  403: Forbidden
+  404: "Not Found"
+
+  */
+}
